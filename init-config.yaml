@@ -1,10 +1,5 @@
 users:
   - default
-package_upgrade: true
-packages:
-  - git
-  - curl
-  - htop
 runcmd:
   - 'curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"'
   - 'curl -LO "https://dl.k8s.io/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl.sha256"'
@@ -15,20 +10,14 @@ runcmd:
   - 'echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null'
   - 'apt-get update'
   - 'apt-get install docker-ce docker-ce-cli containerd.io -y'
-  - 'snap install go --classic'
   - 'curl -fsSL -o get_helm.sh https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3'
   - 'chmod 700 get_helm.sh'
   - './get_helm.sh'
-  - 'wget  https://go.dev/dl/go1.19.linux-amd64.tar.gz'
-  - 'sudo tar -xvf go1.19.linux-amd64.tar.gz'
-  - 'sudo mv go /usr/local'
   - 'echo "$(hostname -I | cut -d" " -f1)  k3s.local.registry.com" >> /etc/hosts'
-  - "echo 'eval `ssh-agent`' >> /etc/bash.bashrc"
   - 'echo "sudo chown -R ubuntu /etc/rancher" >> /etc/bash.bashrc'
   - 'echo "sudo chown ubuntu /var/run/docker.sock" >> /etc/bash.bashrc'
   - 'echo "export KUBECONFIG=/etc/rancher/k3s/k3s.yaml" >> /etc/bash.bashrc'
   - 'echo "alias k=kubectl" >> /etc/bash.bashrc'
-  - 'eval `ssh-agent`'
   - 'cd /home/ubuntu/'
   - 'chown -R ubuntu /home/ubuntu'
   - 'touch /home/ubuntu/.cloud-init.done'
