@@ -15,5 +15,5 @@ spec:
     repoURL: https://github.com/qdnqn/qdnqn-gitops-argocd.git
     targetRevision: HEAD
     helm:
-      values:
-        yaml: values-fallback.yaml
+      valueFiles:
+        - values-fallback.yaml
