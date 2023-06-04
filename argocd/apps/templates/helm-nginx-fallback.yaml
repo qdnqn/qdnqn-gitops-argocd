@@ -14,5 +14,6 @@ spec:
     path: argocd/charts/nginx
     repoURL: https://github.com/qdnqn/qdnqn-gitops-argocd.git
     targetRevision: HEAD
-    values:
-      yaml: values-fallback.yaml
+    helm:
+      values:
+        yaml: values-fallback.yaml
