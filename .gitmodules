@@ -2,6 +2,3 @@
 	path = cloud-native-infrastructure
 	url = https://github.com/qdnqn/cloud-native-infrastructure
 	branch = extrenalized
-[submodule "cloud-native-infrastructure"]
-	path = cloud-native-infrastructure
-	url = https://github.com/qdnqn/cloud-native-infrastructure
