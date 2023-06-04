@@ -2,3 +2,4 @@
 	path = cloud-native-infrastructure
 	url = https://github.com/qdnqn/cloud-native-infrastructure
 	branch = externalized
+  ignore = dirty
