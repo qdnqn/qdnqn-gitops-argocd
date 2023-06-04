@@ -7,6 +7,7 @@
 ## @param global.imagePullSecrets Global Docker registry secret names as an array
 ##
 global:
+  namespace: nginx
   imageRegistry: ""
   ## E.g.
   ## imagePullSecrets:

@@ -1,19 +1,18 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: qdnqn-nginx
+  name: qdnqn-nginx-fallback
   namespace: argocd
   finalizers:
     - resources-finalizer.argocd.argoproj.io
 spec:
   destination:
-    namespace: nginx
+    namespace: nginx-fallback
     server: {{ .Values.spec.destination.server }}
   project: qdnqn
   source:
-    path: argocd/charts/nginx
+    path: argocd/charts/nginx-fallback
     repoURL: https://github.com/qdnqn/qdnqn-gitops-argocd.git
     targetRevision: HEAD
-    helm:
-      valueFiles:
-        - values.yaml
+    values:
+      yaml: values-fallback.yaml
