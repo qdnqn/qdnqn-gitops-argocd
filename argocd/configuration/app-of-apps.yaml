@@ -1,0 +1,12 @@
+kind: Application
+metadata:
+  name: app-of-apps
+  namespace: argocd
+spec:
+  project: qdnqn
+  source:
+    repoURL: https://github.com/qdnqn/qdnqn-gitops-argocd.git
+    targetRevision: HEAD
+    path: argocd/apps
+  destination:
+    server: https://kubernetes.default.svc

@@ -1,0 +1,16 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: qdnqn-nginx
+  namespace: argocd
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  destination:
+    namespace: {{ .Values.spec.destination.namespace }}
+    server: {{ .Values.spec.destination.server }}
+  project: qdnqn
+  source:
+    path: argocd/charts/nginx
+    repoURL: https://github.com/qdnqn/qdnqn-gitops-argocd.git
+    targetRevision: HEAD
