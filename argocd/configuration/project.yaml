@@ -4,14 +4,13 @@ metadata:
   name: qdnqn
   namespace: argocd
 spec:
+  description: App of apps qdnqn GitOps demo example.
+  destinations:
+    - namespace: '*'# this allows all ns, to disallow certain ns use '!ns' for example namespace: '!istio-system'
+      server: '*'
   clusterResourceWhitelist:
     - group: '*'
       kind: '*'
-  description: App of apps qdnqn GitOps demo example.
-  destinations:
-    - server: https://kubernetes.default.svc
-      name: in-cluster
-      namespace: argocd
   namespaceResourceWhitelist:
     - group: '*'
       kind: '*'
